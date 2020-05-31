@@ -6,6 +6,20 @@
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
         
       	<link rel="stylesheet" href="signup.css" type="text/css"/> 
+		<script>
+		function namecheck(form)
+		{
+			var pass1=document.getElementById("inputPassword").value;
+			var pass2=document.getElementById("inputconfirm").value;
+            if (pass1 != pass2) { 
+                    alert ("\nYour password does not match.....Rewrite it") 
+                    return false; 
+                } 
+			else
+			return true;
+  
+		}
+	</script>
        
    </head>
     <body>
@@ -18,7 +32,7 @@
                         </div>
                         <div class="panel-body">
                             <p id="signup" style="font-size:2em;">Setup BugTracker for your organisation. Spend less time communicating and solve bugs quickly</p>
-                            <form method ="GET" action = "https://www.google.com">
+                            <form method ="GET" onSubmit="return namecheck(this)" action = "https://www.google.com" >
                            
                                 <div class="form-group">
                                      <label for="Name">Full Name</label>
@@ -39,14 +53,13 @@
                                 </div>
                                 <div class="form-group">
                                      <label for="Email">Create Password</label>
-                                     <input type="password" class="form-control form-group" name="syspassword" placeholder="E.g heritageit.edu.in">
+                                     <input type="password" class="form-control form-group" id="inputPassword" name="syspassword" placeholder="E.g heritageit.edu.in"pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{7,}" title="minimun of 7 characters and have atleast one number,one uppercase and one lowercase letter" required>
                                 </div>
-                                <!-- <div class="form-group">
+                                <div class="form-group">
                                      <label for="Email">Confirm Password</label>
-                                     <input type="text" class="form-control form-group" name="syspassword" placeholder="E.g heritageit.edu.in">
-                                </div> -->
+                                     <input type="text" class="form-control form-group" id="inputconfirm"syspassword" placeholder="E.g heritageit.edu.in" required>
+                                </div> 
                                 
-                                 
                                 <input type="submit" value="Submit" class="btn btn-primary">    
                             </form>
                         </div>
@@ -64,5 +77,3 @@
      
     
 </html>
-
-
